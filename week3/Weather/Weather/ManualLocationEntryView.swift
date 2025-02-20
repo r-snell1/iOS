@@ -25,7 +25,7 @@ struct ManualLocationEntryView: View {
                 .padding()
 
             // Show weather button
-            Button("Show Weather") {
+            Button("Chow Weather") {
                 fetchWeatherForEnteredLocation()
             }
             .padding()
