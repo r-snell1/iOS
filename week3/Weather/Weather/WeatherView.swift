@@ -20,7 +20,7 @@ struct WeatherView: View {
         NavigationView {
             VStack {
                 if let location = locationManager.currentLocation {
-                    Text("Current Location:")
+                    Text(NSLocalizedString("Current Location:", comment: "Current Location:"))
                     Text("Lat: \(location.coordinate.latitude), Lon: \(location.coordinate.longitude)")
                         .font(.headline)
                     
@@ -30,24 +30,24 @@ struct WeatherView: View {
                         Text("Humidity: \(weather.main.humidity)%")
                         Text("Condition: \(weather.weather.first?.description ?? "N/A")")
                     } else {
-                        Text("Fetching weather...")
+                        Text(NSLocalizedString("Fetching weather...", comment: "fetching weather"))
                     }
                     
-                    Button("Refresh Weather") {
+                    Button(NSLocalizedString("Refresh Weather", comment: "refresh weather")) {
                         fetchWeather()
                     }
                     .padding()
                 } else {
-                    Text("Fetching location...")
+                    Text(NSLocalizedString("Fetching location...", comment: "fetching location"))
                 }
 
-                NavigationLink("Enter Location Manually", destination: ManualLocationEntryView())
+                NavigationLink(NSLocalizedString("Enter Location Manually", comment: "enter location manually"), destination: ManualLocationEntryView())
                     .padding()
 
-                NavigationLink("View Saved Locations", destination: LocationHistoryView())
+                NavigationLink(NSLocalizedString("View Saved Locations", comment: "view saved locations"), destination: LocationHistoryView())
                     .padding()
             }
-            .navigationTitle("Weather App")
+            .navigationTitle(NSLocalizedString("Weather App", comment: "weather app title"))
             .onAppear {
                 fetchWeather()
             }
