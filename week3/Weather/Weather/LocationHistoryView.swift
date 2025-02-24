@@ -16,7 +16,7 @@ struct LocationHistoryView: View {
         VStack {
             // Check if there are any saved locations
             if savedLocations.isEmpty {
-                Text("No saved locations")
+                Text(NSLocalizedString("No saved locations", comment: "Message when no locations are saved"))
                     .padding()
             } else {
                 List(savedLocations) { location in
@@ -32,7 +32,7 @@ struct LocationHistoryView: View {
                 }
             }
         }
-        .navigationTitle("Location History")
+        .navigationTitle(NSLocalizedString("Location History", comment: "Location History"))
         .onAppear {
             // Trigger a reload of data when the view appears
             // If you are not seeing new data, you might want to call a refresh function here
