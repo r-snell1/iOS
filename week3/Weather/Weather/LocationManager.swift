@@ -7,20 +7,44 @@
 
 import Foundation
 import CoreLocation
-import SwiftData
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     @Published var currentLocation: CLLocation?
-    var modelContext: ModelContext?
+    @Published var locationPermissionDenied: Bool = false
 
     override init() {
         super.init()
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        checkLocationAuthorization()
     }
 
+    func requestLocation() {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.requestLocation() // Requests a single location update
+        } else {
+            DispatchQueue.main.async {
+                self.locationPermissionDenied = true
+            }
+        }
+    }
+
+    private func checkLocationAuthorization() {
+        switch locationManager.authorizationStatus {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted, .denied:
+            DispatchQueue.main.async {
+                self.locationPermissionDenied = true
+            }
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.requestLocation() // Fetch location only once
+        @unknown default:
+            break
+        }
+    }
+
+    // Delegate method for successful location update
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         DispatchQueue.main.async {
@@ -28,20 +52,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 
-    func saveCurrentLocation() {
-        guard let location = currentLocation, let context = modelContext else { return }
-        
-        let newLocation = SavedLocation(latitude: location.coordinate.latitude,
-                                        longitude: location.coordinate.longitude,
-                                        timestamp: Date(),
-                                        name: "Current Location")
-
-        context.insert(newLocation)
-        
-        do {
-            try context.save()
-        } catch {
-            print("Failed to save location: \(error)")
-        }
+    // Delegate method for handling location errors
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to get location: \(error.localizedDescription)")
     }
 }

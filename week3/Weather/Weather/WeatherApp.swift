@@ -11,7 +11,7 @@ import SwiftData
 @main
 struct WeatherApp: App {
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([SavedLocation.self])
+        let schema = Schema([SavedLocationModel.self])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {

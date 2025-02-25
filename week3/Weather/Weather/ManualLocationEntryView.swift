@@ -4,6 +4,14 @@
 //
 //  Created by Ryan A Snell on 2/18/25.
 //
+
+//
+//  ManualLocationEntryView.swift
+//  Weather
+//
+//  Created by Ryan A Snell on 2/18/25.
+//
+
 import SwiftUI
 import CoreLocation
 import SwiftData
@@ -12,10 +20,10 @@ struct ManualLocationEntryView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var locationName: String = ""
     @State private var errorMessage: String?
-    @State private var weather: WeatherResponse? // Add a property to hold weather data
-    @State private var isWeatherFetching: Bool = false // Flag to track weather fetching state
+    @State private var weather: WeatherResponse?
+    @State private var isWeatherFetching: Bool = false
     let geocoder = CLGeocoder()
-    let weatherService = WeatherService() // Initialize WeatherService
+    let weatherService = WeatherService()
 
     var body: some View {
         VStack {
@@ -30,11 +38,12 @@ struct ManualLocationEntryView: View {
             }
             .padding()
 
-            // Save location button
+            // Save location button (Only enabled when weather is available)
             Button("Save Location") {
                 saveLocation()
             }
             .padding()
+            .disabled(weather == nil) // Disable if no weather data
 
             // Show error message if any
             if let errorMessage = errorMessage {
@@ -45,11 +54,12 @@ struct ManualLocationEntryView: View {
 
             // Display weather data if available
             if let weather = weather {
-                Text("Weather in \(weather.name), \(weather.sys.country):")
-                    .font(.headline)
-                Text("Temperature: \(String(format: "%.1f", weather.main.temp))°F")
+                Text("Location: \(weather.name) \(weather.sys.country)")
+                Text(String(format: "Temperature: %.1f°F", weather.main.temp))
                 Text("Humidity: \(weather.main.humidity)%")
                 Text("Condition: \(weather.weather.first?.description ?? "N/A")")
+                Text(String(format:"Wind Speed: %.1f mph at: \(weather.wind.deg)°", weather.wind.speed))
+                Text("High: \(String(format: "%.1f°F", weather.main.temp_max)) / Low: \(String(format: "%.1f°F", weather.main.temp_min))")
             }
 
             // Show loading message if weather data is being fetched
@@ -72,7 +82,8 @@ struct ManualLocationEntryView: View {
             }
 
             guard let placemark = placemarks?.first,
-                  let location = placemark.location else {
+                  let location = placemark.location,
+                  let country = placemark.country else {
                 DispatchQueue.main.async {
                     errorMessage = "Location not found"
                 }
@@ -96,42 +107,29 @@ struct ManualLocationEntryView: View {
     }
 
     private func saveLocation() {
-        // Use geocoder to convert location name to coordinates
-        geocoder.geocodeAddressString(locationName) { placemarks, error in
-            if let error = error {
-                DispatchQueue.main.async {
-                    errorMessage = "Error: \(error.localizedDescription)"
-                }
-                return
-            }
+        guard let weather = weather else {
+            errorMessage = "No weather data available to save."
+            return
+        }
 
-            guard let placemark = placemarks?.first,
-                  let location = placemark.location else {
-                DispatchQueue.main.async {
-                    errorMessage = "Location not found"
-                }
-                return
-            }
+        let newLocation = SavedLocationModel(
+            id: UUID(),
+            name: weather.name,
+            latitude: weather.coord.lat,
+            longitude: weather.coord.lon,
+            country: weather.sys.country,
+            timestamp: Date(),
+            temp: weather.main.temp,
+            condition: weather.weather.first?.description ?? "Unknown"
+        )
 
-            // Save the location
-            let newLocation = SavedLocation(latitude: location.coordinate.latitude,
-                                            longitude: location.coordinate.longitude,
-                                            timestamp: Date(),
-                                            name: locationName)
+        modelContext.insert(newLocation)
 
-            modelContext.insert(newLocation)
-
-            do {
-                try modelContext.save()
-                DispatchQueue.main.async {
-                    errorMessage = nil // Clear error message on success
-                    locationName = ""  // Reset location name
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    errorMessage = "Failed to save location"
-                }
-            }
+        do {
+            try modelContext.save()
+            errorMessage = nil // Clear any previous error
+        } catch {
+            errorMessage = "Failed to save location: \(error.localizedDescription)"
         }
     }
 }

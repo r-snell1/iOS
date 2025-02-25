@@ -10,6 +10,7 @@ import SwiftData
 import CoreLocation
 
 struct WeatherView: View {
+    @Environment(\.modelContext) private var modelContext
     @StateObject private var locationManager = LocationManager()
     @State private var weather: WeatherResponse?
     @State private var errorMessage: String?
@@ -29,6 +30,8 @@ struct WeatherView: View {
                         Text(String(format: "Temperature: %.1f°F", weather.main.temp))
                         Text("Humidity: \(weather.main.humidity)%")
                         Text("Condition: \(weather.weather.first?.description ?? "N/A")")
+                        Text(String(format:"Wind Speed: %.1f mph at: \(weather.wind.deg)°", weather.wind.speed))
+                        Text("High: \(String(format: "%.1f°F", weather.main.temp_max)) / Low: \(String(format: "%.1f°F", weather.main.temp_min))")
                     } else {
                         Text(NSLocalizedString("Fetching weather...", comment: "fetching weather"))
                     }
@@ -37,6 +40,12 @@ struct WeatherView: View {
                         fetchWeather()
                     }
                     .padding()
+                    Button("Save Location") {
+                        saveLocation()
+                        print()
+                    }
+                    .padding()
+                    .disabled(weather == nil)
                 } else {
                     Text(NSLocalizedString("Fetching location...", comment: "fetching location"))
                 }
@@ -64,7 +73,35 @@ struct WeatherView: View {
             }
         }
     }
-}
+    
+    private func saveLocation() {
+        guard let weather = weather else {
+            errorMessage = "No weather data available to save."
+            return
+        }
+
+        let newLocation = SavedLocationModel(
+            id: UUID(),
+            name: weather.name,
+            latitude: weather.coord.lat,
+            longitude: weather.coord.lon,
+            country: weather.sys.country,
+            timestamp: Date(),
+            temp: weather.main.temp,
+            condition: weather.weather.first?.description ?? "Unknown"
+        )
+
+        modelContext.insert(newLocation)
+
+        do {
+            try modelContext.save()
+            errorMessage = nil // Clear any previous error
+        } catch {
+            errorMessage = "Failed to save location: \(error.localizedDescription)"
+        }
+    }
+}// end struct
+
 #Preview {
     WeatherView()
         .modelContainer(for: Item.self, inMemory: true)
