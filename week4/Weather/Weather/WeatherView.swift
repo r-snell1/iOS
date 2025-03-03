@@ -36,7 +36,7 @@ struct WeatherView: View {
                         Text(NSLocalizedString("Fetching weather...", comment: "fetching weather"))
                     }
                     
-                    Button(NSLocalizedString("Refresh Weather", comment: "refresh weather")) {
+                    Button("Refresh Weather") {
                         fetchWeather()
                     }
                     .padding()

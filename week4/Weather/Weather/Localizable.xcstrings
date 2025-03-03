@@ -3,6 +3,7 @@
   "strings" : {
     "%@" : {
       "comment" : "%@",
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -35,8 +36,15 @@
         }
       }
     },
+    "Add Test Location" : {
+
+    },
+    "Cancel" : {
+
+    },
     "Chow Weather" : {
       "comment" : "show weather",
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -69,6 +77,9 @@
         }
       }
     },
+    "Country: %@" : {
+
+    },
     "Current Location:" : {
       "comment" : "Current Location:",
       "localizations" : {
@@ -85,6 +96,9 @@
           }
         }
       }
+    },
+    "Debug: Found %lld locations" : {
+
     },
     "Enter a location" : {
       "comment" : "enter a location",
@@ -154,6 +168,16 @@
         }
       }
     },
+    "High: %@ / Low: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "High: %1$@ / Low: %2$@"
+          }
+        }
+      }
+    },
     "Humidity: %lld%%" : {
       "comment" : "Humidity",
       "localizations" : {
@@ -193,6 +217,9 @@
           }
         }
       }
+    },
+    "Latitude: %@" : {
+
     },
     "Location History" : {
       "comment" : "Location History",
@@ -234,6 +261,25 @@
         }
       }
     },
+    "Location: %@, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Location: %1$@, %2$@"
+          }
+        }
+      }
+    },
+    "Longitude: %@" : {
+
+    },
+    "Microphone Access Required" : {
+
+    },
+    "Name: %@" : {
+
+    },
     "No saved locations" : {
       "comment" : "Message when no locations are saved",
       "localizations" : {
@@ -256,6 +302,9 @@
           }
         }
       }
+    },
+    "Open Settings" : {
+
     },
     "Refresh Weather" : {
       "comment" : "refresh weather",
@@ -291,8 +340,22 @@
         }
       }
     },
+    "Show Weather" : {
+
+    },
+    "Temperature: %@°%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Temperature: %1$@°%2$@"
+          }
+        }
+      }
+    },
     "Temperature: %@°F" : {
       "comment" : "temperature",
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -307,6 +370,12 @@
           }
         }
       }
+    },
+    "Timestamp: %@" : {
+
+    },
+    "To use voice imput, please allow access to your microphone in Settings." : {
+
     },
     "View Saved Locations" : {
       "comment" : "view saved locations",
@@ -344,6 +413,7 @@
     },
     "Weather in %@, %@:" : {
       "comment" : "weather in",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

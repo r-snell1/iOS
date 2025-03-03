@@ -5,13 +5,6 @@
 //  Created by Ryan A Snell on 2/18/25.
 //
 
-//
-//  ManualLocationEntryView.swift
-//  Weather
-//
-//  Created by Ryan A Snell on 2/18/25.
-//
-
 import SwiftUI
 import CoreLocation
 import SwiftData
@@ -22,6 +15,11 @@ struct ManualLocationEntryView: View {
     @State private var errorMessage: String?
     @State private var weather: WeatherResponse?
     @State private var isWeatherFetching: Bool = false
+    @State private var isRecording = false
+    @State private var permissionGranted = false
+    @State private var isShowingPermissionAlert = false
+    
+    private let speechRecognizer = SpeechRecognizer()
     let geocoder = CLGeocoder()
     let weatherService = WeatherService()
 
@@ -32,13 +30,21 @@ struct ManualLocationEntryView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
 
-            // Show weather button
+            // Speech-to-Text Button
+            Button(action: toggleRecording) {
+                Image(systemName: isRecording ? "mic.fill" : "mic")
+                    .font(.largeTitle)
+                    .foregroundColor(isRecording ? .red : .blue)
+                    .padding()
+            }
+            
+            // Show Weather Button
             Button("Show Weather") {
                 fetchWeatherForEnteredLocation()
             }
             .padding()
 
-            // Save location button (Only enabled when weather is available)
+            // Save Location Button (Only enabled when weather is available)
             Button("Save Location") {
                 saveLocation()
             }
@@ -54,7 +60,7 @@ struct ManualLocationEntryView: View {
 
             // Display weather data if available
             if let weather = weather {
-                Text("Location: \(weather.name) \(weather.sys.country)")
+                Text("Location: \(weather.name), \(weather.sys.country)")
                 Text(String(format: "Temperature: %.1f°F", weather.main.temp))
                 Text("Humidity: \(weather.main.humidity)%")
                 Text("Condition: \(weather.weather.first?.description ?? "N/A")")
@@ -69,6 +75,66 @@ struct ManualLocationEntryView: View {
             }
         }
         .navigationTitle("Add Location")
+        .onAppear {
+            speechRecognizer.prepare {granted in
+                permissionGranted = granted
+                if !granted {
+                    isShowingPermissionAlert = true
+                }
+            }
+        }
+        .alert("Microphone Access Required", isPresented: $isShowingPermissionAlert) {
+            Button("Open Settings", role: .none) {
+                if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(settingsURL)
+                }
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("To use voice imput, please allow access to your microphone in Settings.")
+        }
+        .padding()
+    }
+
+    // Toggle speech recognition
+    private func toggleRecording() {
+        if !permissionGranted {
+            isShowingPermissionAlert = true
+            return
+        }
+        
+        if isRecording {
+            speechRecognizer.stopRecording()
+            isRecording = false
+        } else {
+            errorMessage = nil
+            speechRecognizer.startRecording { result in
+                DispatchQueue.main.async {
+                    self.isRecording = false
+                    if let result = result, !result.isEmpty {
+                        self.locationName = result
+                    } else if result == nil {
+                        self.errorMessage = "I couldn't understand that. Please try again."
+                    }
+                }
+            }
+            isRecording = true
+        }
+    }
+    
+    private func validateLocationInput() -> Bool {
+        let trimmedLocation = locationName.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmedLocation.isEmpty {
+            errorMessage = "Please enter a location name."
+            return false
+        }
+        
+        if trimmedLocation.count < 2 {
+            errorMessage = "Location name is too short. Please be more specific."
+            return false
+        }
+        
+        return true
     }
 
     private func fetchWeatherForEnteredLocation() {
