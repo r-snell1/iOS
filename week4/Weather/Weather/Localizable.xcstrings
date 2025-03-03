@@ -1,0 +1,440 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@" : {
+      "comment" : "%@",
+      "extractionState" : "stale",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "Add Location" : {
+      "comment" : "add location",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ajouter un emplacement"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "場所を追加"
+          }
+        }
+      }
+    },
+    "Add Test Location" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Chow Weather" : {
+      "comment" : "show weather",
+      "extractionState" : "stale",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "afficher la météo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "天気予報を表示"
+          }
+        }
+      }
+    },
+    "Condition: %@" : {
+      "comment" : "condition",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "condition: %@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "状態: %@"
+          }
+        }
+      }
+    },
+    "Country: %@" : {
+
+    },
+    "Current Location:" : {
+      "comment" : "Current Location:",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "emplacement actuel"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在の場所"
+          }
+        }
+      }
+    },
+    "Debug: Found %lld locations" : {
+
+    },
+    "Enter a location" : {
+      "comment" : "enter a location",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "entrer un lieu"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "場所を入力"
+          }
+        }
+      }
+    },
+    "Enter Location Manually" : {
+      "comment" : "enter location manually",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "saisir un emplacement manuellement"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "場所を手動で入力する"
+          }
+        }
+      }
+    },
+    "Fetching location..." : {
+      "comment" : "fetching location",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "emplacement de récupération…"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "場所を取得する…"
+          }
+        }
+      }
+    },
+    "Fetching weather..." : {
+      "comment" : "fetching weather",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "météo clémente …"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "天気を取得…"
+          }
+        }
+      }
+    },
+    "High: %@ / Low: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "High: %1$@ / Low: %2$@"
+          }
+        }
+      }
+    },
+    "Humidity: %lld%%" : {
+      "comment" : "Humidity",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Humidité: %lld%%"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "湿度: %lld%%"
+          }
+        }
+      }
+    },
+    "Lat: %lf, Lon: %lf" : {
+      "comment" : "latitude",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Lat: %1$lf, Lon: %2$lf"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lat: %lf, Lon: %lf"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "緯度:%1$lf, 経度:%2$lf"
+          }
+        }
+      }
+    },
+    "Latitude: %@" : {
+
+    },
+    "Location History" : {
+      "comment" : "Location History",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historique de l'emplacement"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ロケーション履歴"
+          }
+        }
+      }
+    },
+    "Location: %@ %@" : {
+      "comment" : "location",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Location: %1$@ %2$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "emplacement: %1$@ %2$@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "位置: %1$@ %2$@"
+          }
+        }
+      }
+    },
+    "Location: %@, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Location: %1$@, %2$@"
+          }
+        }
+      }
+    },
+    "Longitude: %@" : {
+
+    },
+    "Microphone Access Required" : {
+
+    },
+    "Name: %@" : {
+
+    },
+    "No saved locations" : {
+      "comment" : "Message when no locations are saved",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No locations saved"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun emplacement enregistré"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存された場所はありません"
+          }
+        }
+      }
+    },
+    "Open Settings" : {
+
+    },
+    "Refresh Weather" : {
+      "comment" : "refresh weather",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "rafraîchir la météo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "天気を更新"
+          }
+        }
+      }
+    },
+    "Save Location" : {
+      "comment" : "save location",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "enregistrer l'emplacement"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "場所を保存"
+          }
+        }
+      }
+    },
+    "Show Weather" : {
+
+    },
+    "Temperature: %@°%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Temperature: %1$@°%2$@"
+          }
+        }
+      }
+    },
+    "Temperature: %@°F" : {
+      "comment" : "temperature",
+      "extractionState" : "stale",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "température: %@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "温度: %@°F"
+          }
+        }
+      }
+    },
+    "Timestamp: %@" : {
+
+    },
+    "To use voice imput, please allow access to your microphone in Settings." : {
+
+    },
+    "View Saved Locations" : {
+      "comment" : "view saved locations",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "afficher l'emplacement enregistré"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存した場所を表示"
+          }
+        }
+      }
+    },
+    "Weather App" : {
+      "comment" : "weather app title",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "application météo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "天気アプリ"
+          }
+        }
+      }
+    },
+    "Weather in %@, %@:" : {
+      "comment" : "weather in",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Weather in %1$@, %2$@:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "météo à %1$@, %2$@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "天気 %1$@, %2$@:"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
