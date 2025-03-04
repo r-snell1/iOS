@@ -1,0 +1,246 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Weather App" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "application météo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "天気アプリ"
+          }
+        }
+      }
+    },
+    "Add Location" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ajouter un emplacement"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "場所を追加"
+          }
+        }
+      }
+    },
+    "Microphone Access Required" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accès au microphone requis"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マイクへのアクセスが必要"
+          }
+        }
+      }
+    },
+    "To use voice imput, please allow access to your microphone in Settings." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour utiliser l'entrée vocale, veuillez autoriser l'accès à votre microphone dans les paramètres."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "音声入力を使用するには、設定でマイクへのアクセスを許可してください。"
+          }
+        }
+      }
+    },
+    "Current Location:" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "emplacement actuel"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在の場所"
+          }
+        }
+      }
+    },
+    "Enter a location" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "entrer un lieu"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "場所を入力"
+          }
+        }
+      }
+    },
+    "Enter Location Manually" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "saisir un emplacement manuellement"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "場所を手動で入力する"
+          }
+        }
+      }
+    },
+    "Fetching location..." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "emplacement de récupération…"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "場所を取得する…"
+          }
+        }
+      }
+    },
+    "Fetching weather..." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "météo clémente …"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "天気を取得…"
+          }
+        }
+      }
+    },
+    "Location History" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historique de l'emplacement"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ロケーション履歴"
+          }
+        }
+      }
+    },
+    "No saved locations" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun emplacement enregistré"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存された場所はありません"
+          }
+        }
+      }
+    },
+    "Refresh Weather" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "rafraîchir la météo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "天気を更新"
+          }
+        }
+      }
+    },
+    "Save Location" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "enregistrer l'emplacement"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "場所を保存"
+          }
+        }
+      }
+    },
+    "Show Weather" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "afficher la météo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "天気予報を表示"
+          }
+        }
+      }
+    },
+    "View Saved Locations" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "afficher l'emplacement enregistré"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存した場所を表示"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
